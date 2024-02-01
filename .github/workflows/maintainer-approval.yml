@@ -1,0 +1,16 @@
+name: Maintainers approval
+
+on:
+  pull_request_review:
+
+jobs:
+  maintainer-approved-check:
+    name: Minimum approval count
+    runs-on: ubuntu-latest
+    steps:
+      - id: find-maintainers
+        uses: peternied/required-approval@v1.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-required: 1
+          required-approvers-list: shiv0408
